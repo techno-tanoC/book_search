@@ -1,0 +1,10 @@
+.bookmark {
+  white-space: nowrap;
+  font-size: 130%; }
+  .bookmark .title {
+    padding: 5px auto; }
+
+.box {
+  margin: 10px auto; }
+
+/*# sourceMappingURL=popup.css.map */
