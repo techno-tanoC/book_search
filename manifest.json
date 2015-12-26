@@ -4,7 +4,7 @@
   "description": "bookmark searcher",
   "version": "0.1",
   "background": {
-    "scripts": ["src/background.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "browser_action": {
