@@ -10,7 +10,7 @@ var bookmarks = [
 
 var BookmarkBox = React.createClass({
   getInitialState: function() {
-    return { query: "", bookmarks: [] };
+    return { bookmarks: [] };
   },
 
   queryBookmark: function(q) {
@@ -18,19 +18,19 @@ var BookmarkBox = React.createClass({
       var bs = marks.map(function(b) {
         return { title: b.title, url: b.url };
       });
-      this.setState({ query: q, bookmarks: bs });
+      this.setState({ bookmarks: bs });
     }.bind(this));
   },
 
-  onChange: function(e) {
-    var q = e.target.value;
+  onChange: function() {
+    var q = this.refs.searcher.value;
     this.queryBookmark(q);
   },
 
   render: function() {
     return (
       <div className="box">
-        <Searcher query={ this.state.query } changeText={ this.onChange } />
+        <input type="text" autoFocus={ true } ref="searcher" onChange={ this.onChange } />
         <BookmarkList bookmarks={ this.state.bookmarks } />
       </div>
     );
