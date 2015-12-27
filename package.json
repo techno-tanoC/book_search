@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "watchify -t babelify ./src/main.js -o ./dest/bundle.js",
+    "watch": "watchify -t babelify ./src/* -o ./dest/bundle.js",
     "scss": "bundle exec sass --watch css/popup.scss:css/popup.css"
   },
   "author": "",

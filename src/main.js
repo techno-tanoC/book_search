@@ -10,27 +10,28 @@ var bookmarks = [
 
 var BookmarkBox = React.createClass({
   getInitialState: function() {
-    return { bookmarks: [] };
+    return { query: "", bookmarks: [] };
   },
 
-  recent: function() {
-    chrome.runtime.sendMessage({type: "search", query: "qiita"}, function(marks) {
-      var recents = marks.map(function(b) {
+  queryBookmark: function(q) {
+    chrome.runtime.sendMessage({type: "search", query: q}, function(marks) {
+      var bs = marks.map(function(b) {
         return { title: b.title, url: b.url };
       });
-      this.setState({ bookmarks: recents });
+      this.setState({ query: q, bookmarks: bs });
     }.bind(this));
   },
 
-  componentDidMount: function() {
-    this.recent();
+  onChange: function(e) {
+    var q = e.target.value;
+    this.queryBookmark(q);
   },
 
   render: function() {
     return (
       <div className="box">
-        <Searcher />
-        <BookmarkList bookmarks={this.state.bookmarks} />
+        <Searcher query={ this.state.query } changeText={ this.onChange } />
+        <BookmarkList bookmarks={ this.state.bookmarks } />
       </div>
     );
   }
