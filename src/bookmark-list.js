@@ -1,11 +1,12 @@
-var React = require('react');
-var Bookmark = require('./bookmark');
+import React, { Component, PropTypes } from 'react'
+import Bookmark from './bookmark'
 
-module.exports = React.createClass({
-  render: function() {
-    var bs = this.props.bookmarks.map(function(mark) {
+export default class BookmarkList extends Component {
+  render() {
+    let bs = this.props.bookmarks.map(function(mark) {
+      const { title, url } = mark
       return (
-        <Bookmark title={mark.title} url={mark.url} key={mark.key} />
+        <Bookmark title={title} url={url} />
       );
     });
     return (
@@ -14,4 +15,11 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+Bookmark.propTypes = {
+  bookmarks: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string
+  }))
+}

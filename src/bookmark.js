@@ -1,14 +1,19 @@
-var React = require('react');
+import React, { Component, PropTypes } from 'react'
 
-module.exports = React.createClass({
-  openTab: function() {
+export default class Bookmark extends Component {
+  constructor(props) {
+    super(props)
+    this.openTab = this.openTab.bind(this)
+  }
+
+  openTab() {
     chrome.tabs.query({active: true }, function(tab) {
-      var index = tab[0].index + 1
+      let index = tab[0].index + 1
       chrome.tabs.create({ url: this.props.url, index: index, active: true });
     }.bind(this));
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div className="bookmark shadow" onClick={ this.openTab }>
         <div>
@@ -18,4 +23,9 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+Bookmark.propTypes = {
+  url: PropTypes.string,
+  title: PropTypes.string
+}
