@@ -9,6 +9,7 @@ class BookmarkBox extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.queryBookmark = this.queryBookmark.bind(this);
     this.state = { bookmarks: [] };
+    // this.queryBookmark("q");
   }
 
   queryBookmark(q) {

@@ -14,13 +14,25 @@ body {
   background-color: white;
   cursor: pointer;
   border-radius: 3px;
-  .title {
-    @include text-ellipsis;
-    font-size: 130%;
+
+  .image {
+    float: left;
+    .favicon {
+      margin: auto 5px;
+    }
   }
-  .url {
-    @include text-ellipsis;
-    color: #777;
+
+  .container {
+    overflow: hidden;
+    .title {
+      @include text-ellipsis;
+      font-size: 130%;
+    }
+
+    .url {
+      @include text-ellipsis;
+      color: #777;
+    }
   }
 }
 

@@ -7,16 +7,22 @@ body {
   background-color: white;
   cursor: pointer;
   border-radius: 3px; }
-  .bookmark .title {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 130%; }
-  .bookmark .url {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #777; }
+  .bookmark .image {
+    float: left; }
+    .bookmark .image .favicon {
+      margin: auto 5px; }
+  .bookmark .container {
+    overflow: hidden; }
+    .bookmark .container .title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 130%; }
+    .bookmark .container .url {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #777; }
 
 .shadow {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }

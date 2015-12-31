@@ -14,11 +14,16 @@ export default class Bookmark extends Component {
   }
 
   render() {
+    let { title, url } = this.props
+    let favicon = "http://www.google.com/s2/favicons?domain=" + url.split('/')[2];
     return (
       <div className="bookmark shadow" onClick={ this.openTab }>
-        <div>
-          <div className="title">{ this.props.title }</div>
-          <div className="url">{ this.props.url }</div>
+        <div className="image">
+          <img className="favicon" src={ favicon } />
+        </div>
+        <div className="container">
+          <div className="title">{ title }</div>
+          <div className="url">{ url }</div>
         </div>
       </div>
     );
