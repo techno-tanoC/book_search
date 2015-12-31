@@ -1,19 +1,33 @@
-.bookmark {
-  margin: 10px auto;
-  white-space: nowrap;
-  font-size: 120%;
-  cursor: pointer;
-  .title {
-    padding: 5px auto;
-  }
-  .url {
-  }
+body {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.box {
-  width: 500px;
+@mixin text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bookmark {
+  margin: 10px auto;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  .title {
+    @include text-ellipsis;
+    font-size: 130%;
+  }
+  .url {
+    @include text-ellipsis;
+    color: #777;
+  }
 }
 
 .shadow {
-  // box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.bookmark-box {
+  width: 500px;
 }

@@ -27,7 +27,7 @@ class BookmarkBox extends Component {
 
   render() {
     return (
-      <div className="box">
+      <div className="bookmark-box">
         <Searcher handleChange={ this.handleChange } />
         <BookmarkList bookmarks={ this.state.bookmarks } />
       </div>

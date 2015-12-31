@@ -7,7 +7,7 @@ export default class Bookmark extends Component {
   }
 
   openTab() {
-    chrome.tabs.query({active: true }, function(tab) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tab) {
       let index = tab[0].index + 1
       chrome.tabs.create({ url: this.props.url, index: index, active: true });
     }.bind(this));
