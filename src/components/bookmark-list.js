@@ -3,12 +3,12 @@ import Bookmark from './bookmark'
 
 export default class BookmarkList extends Component {
   render() {
-    let bs = this.props.bookmarks
+    let bs =this.props.bookmarks
       .filter(function(mark) { return mark.url != undefined })
       .map(function(mark) {
-        const { title, url } = mark
+        const { title, url, id } = mark
         return (
-          <Bookmark title={title} url={url} />
+          <Bookmark key={id} title={title} url={url} />
         );
       });
     return (

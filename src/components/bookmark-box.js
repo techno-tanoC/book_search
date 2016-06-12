@@ -1,39 +1,35 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
+
+import {queryBookmark} from '../actions'
 import Searcher from './searcher'
 import BookmarkList from './bookmark-list'
 
 class BookmarkBox extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.queryBookmark = this.queryBookmark.bind(this);
-    this.state = { bookmarks: [] };
     // this.queryBookmark("q");
   }
 
-  queryBookmark(q) {
-    chrome.runtime.sendMessage({type: "search", query: q}, function(marks) {
-      let bs = marks.map(function(b) {
-        return { title: b.title, url: b.url };
-      });
-      this.setState({ bookmarks: bs });
-    }.bind(this));
-  }
-
-  handleChange(e) {
-    let q = e.target.value;
-    this.queryBookmark(q);
-  }
-
   render() {
+    const { handleChange, bookmarks } = this.props
     return (
       <div className="bookmark-box">
-        <Searcher handleChange={ this.handleChange } />
-        <BookmarkList bookmarks={ this.state.bookmarks } />
+        <Searcher handleChange={ handleChange } />
+        <BookmarkList bookmarks={ bookmarks } />
       </div>
     );
   }
 }
 
-ReactDOM.render(<BookmarkBox />, document.getElementById("node"));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChange: (e) => {
+      dispatch(queryBookmark(e.target.value)) }
+  }
+}
+
+export const App = connect(
+  state => state,
+  mapDispatchToProps
+)(BookmarkBox)

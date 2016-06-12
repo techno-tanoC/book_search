@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "watchify -t babelify ./src/* -o ./dest/bundle.js",
-    "scss": "bundle exec sass --watch css/popup.scss:css/popup.css"
+    "watch": "watchify -t babelify -o ./dest/bundle.js ./src/index.js",
+    "scss": "bundle exec sass --watch css/popup.scss:css/popup.css",
+    "build": "watchify -t babelify ./test.js -o ./dest/test.js"
   },
   "author": "",
   "license": "ISC",
