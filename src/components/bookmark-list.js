@@ -4,8 +4,8 @@ import Bookmark from './bookmark'
 export default class BookmarkList extends Component {
   render() {
     let bs =this.props.bookmarks
-      .filter(function(mark) { return mark.url != undefined })
-      .map(function(mark) {
+      .filter((mark) => { return mark.url != undefined })
+      .map((mark) => {
         const { title, url, id } = mark
         return (
           <Bookmark key={id} title={title} url={url} />
