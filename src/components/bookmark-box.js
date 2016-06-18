@@ -6,11 +6,6 @@ import Searcher from './searcher'
 import BookmarkList from './bookmark-list'
 
 class BookmarkBox extends Component {
-  constructor(props) {
-    super(props);
-    // this.queryBookmark("q");
-  }
-
   render() {
     const { handleChange, bookmarks } = this.props
     return (
@@ -18,7 +13,7 @@ class BookmarkBox extends Component {
         <Searcher handleChange={ handleChange } />
         <BookmarkList bookmarks={ bookmarks } />
       </div>
-    );
+    )
   }
 }
 

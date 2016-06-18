@@ -13,14 +13,14 @@ export default class Bookmark extends Component {
         chrome.tabs.update({ url: this.props.url })
       } else {
         let index = tab.index + 1
-        chrome.tabs.create({ url: this.props.url, index: index, active: true });
+        chrome.tabs.create({ url: this.props.url, index: index, active: true })
       }
-    });
+    })
   }
 
   render() {
     let { title, url } = this.props
-    let favicon = "http://www.google.com/s2/favicons?domain=" + url.split('/')[2];
+    let favicon = "http://www.google.com/s2/favicons?domain=" + url.split('/')[2]
     return (
       <div className="bookmark shadow" onClick={ this.open }>
         <div className="image">
@@ -31,7 +31,7 @@ export default class Bookmark extends Component {
           <div className="url">{ url }</div>
         </div>
       </div>
-    );
+    )
   }
 }
 

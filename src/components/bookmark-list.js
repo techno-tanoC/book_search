@@ -9,13 +9,13 @@ export default class BookmarkList extends Component {
         const { title, url, id } = mark
         return (
           <Bookmark key={id} title={title} url={url} />
-        );
-      });
+        )
+      })
     return (
       <div className="list">
         {bs}
       </div>
-    );
+    )
   }
 }
 
