@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Searcher from './searcher'
 import BookmarkList from './bookmark-list'
 

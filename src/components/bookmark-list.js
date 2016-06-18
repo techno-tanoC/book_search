@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import Bookmark from './bookmark'
 
 export default function BookmarkList(props) {

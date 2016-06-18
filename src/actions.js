@@ -5,15 +5,3 @@ export const updateBookmark = (bookmarks) => {
     bookmarks
   }
 }
-
-export const QUERY = 'QUERY'
-export const queryBookmark = q => {
-  return dispatch => {
-    chrome.runtime.sendMessage({ type: "search", query: q }, (marks) => {
-      let bs = marks.map((b) => {
-        return { id: b.id, title: b.title, url: b.url }
-      })
-      dispatch(updateBookmark(bs))
-    })
-  }
-}
