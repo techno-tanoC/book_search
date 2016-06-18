@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
 import bookmarkApp from './reducers'
-import App from './components/bookmark-box'
+import App from './containers'
 
 const store = createStore(bookmarkApp, applyMiddleware(thunk))
 
