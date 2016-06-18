@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { UPDATE, QUERY } from './actions'
 
-function bookmarks(state = { bookmarks: [] }, action) {
+function bookmarkApp(state = { bookmarks: [] }, action) {
   switch (action.type) {
     case UPDATE:
       return { bookmarks: action.bookmarks }
@@ -11,4 +11,4 @@ function bookmarks(state = { bookmarks: [] }, action) {
   }
 }
 
-export const bookmarkApp = bookmarks
+export default bookmarkApp

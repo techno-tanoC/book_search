@@ -4,14 +4,14 @@ import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-import { bookmarkApp } from './reducers'
-import { App } from './components/bookmark-box'
+import bookmarkApp from './reducers'
+import App from './components/bookmark-box'
 
-let store = createStore(bookmarkApp, applyMiddleware(thunk))
+const store = createStore(bookmarkApp, applyMiddleware(thunk))
 
 console.log(store.getState())
 
-let unsubscribe = store.subscribe(() =>
+const unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 )
 

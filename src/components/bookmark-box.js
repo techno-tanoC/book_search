@@ -1,20 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {queryBookmark} from '../actions'
+import { queryBookmark } from '../actions'
 import Searcher from './searcher'
 import BookmarkList from './bookmark-list'
 
-class BookmarkBox extends Component {
-  render() {
-    const { handleChange, bookmarks } = this.props
-    return (
-      <div className="bookmark-box">
-        <Searcher handleChange={ handleChange } />
-        <BookmarkList bookmarks={ bookmarks } />
-      </div>
-    )
-  }
+const BookmarkBox = props => {
+  const { handleChange, bookmarks } = props
+  return (
+    <div className="bookmark-box">
+      <Searcher handleChange={ handleChange } />
+      <BookmarkList bookmarks={ bookmarks } />
+    </div>
+  )
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -24,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export const App = connect(
+export default connect(
   state => state,
   mapDispatchToProps
 )(BookmarkBox)
